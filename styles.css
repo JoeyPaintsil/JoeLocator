@@ -1,0 +1,111 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+#map {
+    height: 60%;
+}
+
+.container {
+    padding: 20px;
+    background-color: #f8f9fa;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.input-box {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.input-box label {
+    margin-right: 10px;
+    min-width: 120px;
+}
+
+.input-box input {
+    margin-right: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.buttons {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.buttons button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buttons #getLocation {
+    background-color: #007bff;
+    color: white;
+}
+
+.buttons #search {
+    background-color: #28a745;
+    color: white;
+}
+
+.buttons #downloadCSV {
+    background-color: #ffc107;
+    color: white;
+}
+
+.buttons button, .buttons a button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buttons #getLocation {
+    background-color: #007bff;
+    color: white;
+}
+
+.buttons #search {
+    background-color: #28a745;
+    color: white;
+}
+
+.buttons #downloadCSV {
+    background-color: #ffc107;
+    color: white;
+}
+
+.buttons #downloadPDF button {
+    background-color: #ff5733;
+    color: white;
+}
+
+.buttons #clearMap {
+    background-color: #dc3545;
+    color: white;
+}
+
+@keyframes fadeEffect {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+button:active {
+    animation: fadeEffect 1s;
+}

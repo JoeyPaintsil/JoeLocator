@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building Locator Dashboard</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="input-box">
+            <label for="type">Type of Building:</label>
+            <input list="building-types" id="type" placeholder="Start typing or select...">
+            <datalist id="building-types">
+                <option value="Restaurant">
+                <option value="Hotel">
+                <option value="Cafe">
+                <option value="Hospital">
+                <option value="Supermarket">
+                <option value="Pharmacy">
+                <!-- Add more building types as needed -->
+            </datalist>
+        </div>
+        <div class="input-box">
+            <label for="latitude">Latitude:</label>
+            <input type="text" id="latitude">
+        </div>
+        <div class="input-box">
+            <label for="longitude">Longitude:</label>
+            <input type="text" id="longitude">
+        </div>
+        <div class="input-box">
+            <label for="buffer">Buffer Zone (meters):</label>
+            <input type="text" id="buffer" placeholder="e.g., 500">
+        </div>
+        <div class="buttons">
+            <button id="getLocation">Get My Location</button>
+            <button id="search">Search</button>
+            <button id="downloadCSV">Download CSV</button>
+            <button id="downloadPDF">Download Amenities PDF</button>
+            <button id="clearMap">Clear Map</button>
+        </div>
+    </div>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
