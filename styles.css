@@ -6,6 +6,12 @@ body, html {
     background-color: #f8f9fa;
 }
 
+h1{
+    color:blue;
+    font-weight: bold;
+    margin-top: 0px;
+}
+
 #map {
     height: 60%;
 }

@@ -18,6 +18,7 @@ var userIcon = L.icon({
 
 var userMarker;
 var bufferCircle;
+var userPosition;
 
 document.getElementById('getLocation').addEventListener('click', function() {
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -34,6 +35,15 @@ document.getElementById('getLocation').addEventListener('click', function() {
         // Add the new userMarker
         userMarker = L.marker([lat, lon], { icon: userIcon }).addTo(map);
         userMarker.bindPopup('Your Location').openPopup();
+
+        // Add or update the user position circle
+        if (userPosition) {
+            map.removeLayer(userPosition);
+        }
+        userPosition = L.circle([lat, lon], {
+            color: 'red',
+            radius: 80
+        }).addTo(map);
 
         // Zoom to the user's location
         map.setView([lat, lon], 13);
@@ -69,9 +79,9 @@ document.getElementById('search').addEventListener('click', function() {
     fetch(overpassUrl)
         .then(response => response.json())
         .then(data => {
-            // Clear previous markers except the userMarker
+            // Clear previous markers except the userMarker and userPosition
             map.eachLayer(function(layer) {
-                if (layer != userMarker && layer != bufferCircle && !!layer.toGeoJSON) {
+                if (layer != userMarker && layer != userPosition && layer != bufferCircle && !!layer.toGeoJSON) {
                     map.removeLayer(layer);
                 }
             });
@@ -107,7 +117,7 @@ document.getElementById('downloadCSV').addEventListener('click', function() {
 
 document.getElementById('clearMap').addEventListener('click', function() {
     map.eachLayer(function(layer) {
-        if (layer != userMarker && !!layer.toGeoJSON) {
+        if (layer != userMarker && layer != userPosition && !!layer.toGeoJSON) {
             map.removeLayer(layer);
         }
     });
@@ -122,4 +132,25 @@ document.getElementById('clearMap').addEventListener('click', function() {
     document.getElementById('latitude').value = '';
     document.getElementById('longitude').value = '';
     document.getElementById('buffer').value = '';
+});
+
+// Download the amenities PDF
+document.getElementById('downloadPDF').addEventListener('click', function() {
+    // Create a link element
+    var link = document.createElement('a');
+    
+    // Set the path to the PDF file 
+    link.href = 'amenities.pdf';
+    
+    // Set the download attribute with the filename
+    link.download = 'amenities.pdf';
+    
+    // Append the link to the document body
+    document.body.appendChild(link);
+    
+    // Click the link to trigger the download
+    link.click();
+    
+    // Remove the link from the document
+    document.body.removeChild(link);
 });

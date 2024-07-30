@@ -9,18 +9,11 @@
 </head>
 <body>
     <div class="container">
+        <h1>JoeLocator</h1>
         <div class="input-box">
             <label for="type">Type of Building:</label>
-            <input list="building-types" id="type" placeholder="Start typing or select...">
-            <datalist id="building-types">
-                <option value="Restaurant">
-                <option value="Hotel">
-                <option value="Cafe">
-                <option value="Hospital">
-                <option value="Supermarket">
-                <option value="Pharmacy">
-                <!-- Add more building types as needed -->
-            </datalist>
+            <input  id="type" placeholder="Search Building Type">
+            
         </div>
         <div class="input-box">
             <label for="latitude">Latitude:</label>
@@ -34,6 +27,7 @@
             <label for="buffer">Buffer Zone (meters):</label>
             <input type="text" id="buffer" placeholder="e.g., 500">
         </div>
+        <p> Click "Download Buildings PDF" to see the type of buildings you can search for.</p>
         <div class="buttons">
             <button id="getLocation">Get My Location</button>
             <button id="search">Search</button>
@@ -41,7 +35,9 @@
             <button id="downloadPDF">Download Amenities PDF</button>
             <button id="clearMap">Clear Map</button>
         </div>
+        
     </div>
+    
     <div id="map"></div>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
