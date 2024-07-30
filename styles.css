@@ -90,9 +90,10 @@ h1{
     color: white;
 }
 
-.buttons #downloadPDF button {
+.buttons #downloadPDF  {
     background-color: #ff5733;
     color: white;
+    background-color: #5393a1;
 }
 
 .buttons #clearMap {
