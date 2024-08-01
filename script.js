@@ -63,6 +63,28 @@ document.getElementById('search').addEventListener('click', function() {
         return;
     }
 
+    
+        // Remove existing userMarker if it exists
+        if (userMarker) {
+            map.removeLayer(userMarker);
+        }
+
+        // Add the new userMarker
+        userMarker = L.marker([lat, lon], { icon: userIcon }).addTo(map);
+        userMarker.bindPopup('Your Location').openPopup();
+
+        // Add or update the user position circle
+        if (userPosition) {
+            map.removeLayer(userPosition);
+        }
+        userPosition = L.circle([lat, lon], {
+            color: 'red',
+            radius: 80
+        }).addTo(map);
+
+        // Zoom to the user's location
+        map.setView([lat, lon], 13);
+
     // Draw the buffer circle
     if (bufferCircle) {
         map.removeLayer(bufferCircle);
